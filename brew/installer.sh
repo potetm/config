@@ -49,8 +49,9 @@ function installFormula {
 
 function linkEtc {
   for file in "$MY_ETC"/*; do
-    [[ -L /etc/${file##*/} ]] && continue # already linked
-    [[ -e /etc/${file##*/} ]] && fail "System file /etc/${file##*/} already exists.  This script will not overwrite it.  Please save it off or remove it and re-run this script"
+    typeset filebase="${file##*/}"
+    [[ -L /etc/$filebase ]] && sudo rm -f "/etc/$filebase"
+    [[ -e /etc/$filebase ]] && fail "System file /etc/$filebase already exists.  This script will not overwrite it.  Please save it off or remove it and re-run this script"
     sudo ln -s "$file" /etc/
   done
 }
@@ -61,7 +62,7 @@ function linkBrewBase {
   while read -r file; do
     file="${file#$MY_BREW_BASE/}"
 
-    [[ -L $BREW_BASE/$file ]] && continue # already linked
+    [[ -L $BREW_BASE/$file ]] && rm -f "$BREW_BASE/$file"
     [[ -e $BREW_BASE/$file ]] && fail "Homebrew file '$BREW_BASE/$file' already exists.  This script will not overwrite it.  Please save it off or remove it and re-run this script"
     ln -s "$MY_BREW_BASE"/"$file" "$BREW_BASE"/"${file%/*}"
   done

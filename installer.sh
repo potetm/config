@@ -28,17 +28,22 @@ typeset -r BREW_INSTALLER="$BREW_DIR/installer.sh"
 command "$BREW_INSTALLER"
 
 if ! [[ -L $USER_BIN_DIR  ]]; then
-  if ls "$USER_BIN_DIR"/* > /dev/null 2>&1; then
+  if [[ -e $USER_BIN_DIR ]] || ls "$USER_BIN_DIR"/* > /dev/null 2>&1; then
     fail "$USER_BIN_DIR is not empty.  This script will not replace it.  Please remove it to continue."
   else
     ln -s "$BIN_DIR" "$USER_BIN_DIR"
   fi
+else
+  rm -f "$USER_BIN_DIR"
+  ln -s "$BIN_DIR" "$USER_BIN_DIR"
 fi
 
 
 for file in "$DOT_FILE_DIR"/*; do
   destination="$DOT_FILE_DESTINATION_DIR"/."${file##*/}"
-  if checkLink "$destination"; then
-    ln -s "$file" "$destination"
+  if ! checkLink "$destination"; then # checklink will exit if it's not a link
+    rm -f "$destination"
   fi
+
+  ln -s "$file" "$destination"
 done
