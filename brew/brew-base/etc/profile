@@ -1,0 +1,12 @@
+# source in profile.d files
+BREW_PREFIX=`brew --prefix`
+
+for script in "$BREW_PREFIX"/etc/profile.d/*.sh ; do
+  if [ -r $script ] ; then
+    . $script
+  fi
+done
+
+if [ "${BASH-no}" != "no" ]; then
+	[ -r "$BREW_PREFIX"/etc/bashrc ] && . "$BREW_PREFIX"/etc/bashrc
+fi

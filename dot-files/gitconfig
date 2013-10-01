@@ -1,0 +1,24 @@
+[include]
+  path = ~/.gitconfig-local
+[merge]
+	tool = vimdiff
+[core]
+	editor = vim
+  pager  = less -R
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	unstage = reset HEAD --
+	last = log -1 HEAD
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(green)\\ [%cn]\\ %C(cyan)\\ [%ad]" --decorate --numstat
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[push]
+	default = simple
+[color]
+	ui = true
