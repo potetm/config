@@ -11,7 +11,7 @@ function fail {
 # not sure if com.apple.pkg.XcodeMAS_iOSSDK_6_1 is universal, but that's what it is on my machine right now
 pkgutil --pkg-info=com.apple.pkg.XcodeMAS_iOSSDK_6_1 > /dev/null 2>&1 || fail "Xcode not insalled.  See README.md."
 # check for xcode cli
-pkgutil --pkg-info=com.apple.pkg.DeveloperToolsCLI   > /dev/null 2>&1 || fail "Xcode CLI not insalled.  See README.md."
+#pkgutil --pkg-info=com.apple.pkg.DeveloperToolsCLI   > /dev/null 2>&1 || fail "Xcode CLI not insalled.  See README.md."
 # check for brew
 type brew > /dev/null 2>&1 || fail "brew is not installed!  See README.md."
 
