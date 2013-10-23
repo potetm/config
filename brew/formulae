@@ -26,6 +26,7 @@ node
 openssh
 openssl
 pcre
+phantomjs
 pkg-config
 postgresql
 rabbitmq
@@ -34,6 +35,7 @@ reattach-to-user-namespace
 ruby
 scala
 tmux
+tree
 unzip
 vim
 wget
