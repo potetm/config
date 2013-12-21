@@ -23,6 +23,7 @@ libyaml
 make
 memcached
 node
+octave
 openssh
 openssl
 pcre
@@ -33,6 +34,7 @@ rabbitmq
 readline
 reattach-to-user-namespace
 ruby
+sbt
 scala
 tmux
 tree

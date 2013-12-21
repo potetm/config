@@ -1,0 +1,11 @@
+#!/usr/bin/env ksh
+
+find . -print | egrep -i '\.(jar|zip)$' |& exec 3>&p; exec 4<&p
+while read -u4 file; do
+	print -u2 "looking in: $file"
+	results=$(jar -tvf "$file" | egrep -i -- $1)
+	if [[ -n "$results" ]]; then
+		print $file
+		print "$results" | sed 's/^/	/'
+	fi
+done
