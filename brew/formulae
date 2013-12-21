@@ -30,6 +30,7 @@ pcre
 phantomjs
 pkg-config
 postgresql
+python
 rabbitmq
 readline
 reattach-to-user-namespace
