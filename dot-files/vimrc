@@ -45,6 +45,7 @@ map! <F4> <C-o><F4>
 " Leader
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = "\\"
 
 " clipboard yank
 vnoremap <leader>y "*y
@@ -157,6 +158,3 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-" vim-fireplace
-map <leader>r :Require<cr>

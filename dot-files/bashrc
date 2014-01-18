@@ -2,6 +2,8 @@ set -o vi
 export EDITOR="vim"
 export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=target"
 
+alias f="fg"
+
 alias vi="vim"
 alias l="ls"
 alias sl="ls"
@@ -11,7 +13,10 @@ alias pself="ps -Ao flags,state,user,pid,ppid,%cpu,pri,nice,paddr,rss,wchan,star
 alias gitk="gitk 2> /dev/null"
 
 alias cdpr="cd ~/projects"
+alias cdbl="cd ~/projects/potetm/potetm.github.io"
 alias cdae="cd ~/projects/cicayda/analytics-engine"
+alias cdsys="cd ~/projects/cicayda/SysOps"
+alias cdev="cd ~/projects/cicayda/devops"
 alias cdconf="cd ~/projects/potetm/config"
 
 alias dnsflush="sudo killall -HUP mDNSResponder"

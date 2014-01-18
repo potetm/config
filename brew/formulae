@@ -23,7 +23,6 @@ libyaml
 make
 memcached
 node
-octave
 openssh
 openssl
 pcre
