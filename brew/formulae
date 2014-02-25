@@ -17,6 +17,7 @@ gradle
 grep
 groovy
 gzip
+iftop
 leiningen
 libevent
 libyaml
@@ -25,6 +26,8 @@ memcached
 node
 openssh
 openssl
+packer
+parallel
 pcre
 phantomjs
 pkg-config
