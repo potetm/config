@@ -89,7 +89,7 @@ nn <leader>b :call ClearCtrlPState()<cr>:CtrlPBuffer<cr>
 nn <leader>B :call SetCtrlPDefaultInputToCword()<cr>:CtrlPBuffer<cr>
 
 " Project search
-nn K :Ack -ir '\b<cword>\b' .<cr>:cw<cr>
+nn K :LAck! -i '\b<cword>\b'<cr>
 
 " Jump to declaration
 nn <F5> :call ClearCtrlPState()<cr>:let g:ctrlp_default_input = substitute(expand('<cword>'), '.*/', '', '')<cr>:CtrlPTag<cr>

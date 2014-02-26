@@ -24,6 +24,7 @@ typeset -r BIN_DIR="$BASE_DIR/bin"
 typeset -r USER_BIN_DIR="$HOME/bin"
 typeset -r BREW_DIR="$BASE_DIR/brew"
 typeset -r BREW_INSTALLER="$BREW_DIR/installer.sh"
+typeset -r PATHOGEN_BUNDLE_DIR=~/.vim/bundle
 
 command "$BREW_INSTALLER"
 
@@ -38,7 +39,6 @@ else
   ln -s "$BIN_DIR" "$USER_BIN_DIR"
 fi
 
-
 for file in "$DOT_FILE_DIR"/*; do
   destination="$DOT_FILE_DESTINATION_DIR"/."${file##*/}"
   if ! checkLink "$destination"; then # checklink will exit if it's not a link
@@ -47,3 +47,15 @@ for file in "$DOT_FILE_DIR"/*; do
 
   ln -s "$file" "$destination"
 done
+
+mkdir -p "$PATHOGEN_BUNDLE_DIR"
+cd "$PATHOGEN_BUNDLE_DIR"
+
+while read repo; do
+  repoShort="${repo##*/}"
+  repoShort="${repoShort%%.git}"
+
+  if ! [[ -d $repoShort ]]; then
+    git clone "$repo"
+  fi
+done < "$BASE_DIR"/vim-plugins
