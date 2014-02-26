@@ -26,7 +26,6 @@ memcached
 node
 openssh
 openssl
-packer
 parallel
 pcre
 phantomjs
