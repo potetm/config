@@ -87,6 +87,10 @@ nn <leader>t :call ClearCtrlPState()<cr>:CtrlP<cr>
 nn <leader>T :call SetCtrlPDefaultInputToCword()<cr>:CtrlP<cr>
 nn <leader>b :call ClearCtrlPState()<cr>:CtrlPBuffer<cr>
 nn <leader>B :call SetCtrlPDefaultInputToCword()<cr>:CtrlPBuffer<cr>
+
+" Project search
+nn K :Ack -ir '\b<cword>\b' .<cr>:cw<cr>
+
 " Jump to declaration
 nn <F5> :call ClearCtrlPState()<cr>:let g:ctrlp_default_input = substitute(expand('<cword>'), '.*/', '', '')<cr>:CtrlPTag<cr>
 
@@ -97,7 +101,6 @@ let g:clojure_align_multiline_strings = 1
 nn <C-t> :tabnew<cr>
 nn <C-p> :tabp<cr>
 nn <C-n> :tabn<cr>
-nn <leader>tc :tabclose<cr>
 
 " Unimpared mappings
 map ]q :cnext<cr>
@@ -111,8 +114,8 @@ let g:paredit_electric_return = 0
 
 " Make vim remember where it left off in a file (except for git commit
 " messages)
-au BufWinLeave ?*\(.git/COMMIT_EDITMSG\)\@<! mkview
-au BufWinEnter ?*\(.git/COMMIT_EDITMSG\)\@<! silent loadview
+au BufWinLeave ?*\(.git/COMMIT_EDITMSG\)\@<! silent! mkview
+au BufWinEnter ?*\(.git/COMMIT_EDITMSG\)\@<! silent! loadview
 
 " Highlight Trailing Space
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
