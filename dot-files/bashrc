@@ -22,3 +22,11 @@ alias cdev="cd ~/projects/cicayda/devops"
 alias cdconf="cd ~/projects/potetm/config"
 
 alias dnsflush="sudo killall -HUP mDNSResponder"
+
+complete -C aws_completer aws
+
+alias prodt="ssh -N prodt"
+alias staget="ssh -N staget"
+alias eut="ssh -N eut"
+alias drt="ssh -N drt"
+alias dr-eut="ssh -N dr-eut"
