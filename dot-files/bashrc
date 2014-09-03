@@ -1,6 +1,8 @@
 set -o vi
 export EDITOR="vim"
 export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=target"
+export HISTFILESIZE=-1
+export HISTSIZE=-1
 
 alias f="fg"
 

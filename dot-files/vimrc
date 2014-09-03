@@ -47,59 +47,20 @@ let mapleader = ","
 let g:mapleader = ","
 let maplocalleader = "\\"
 
-" clipboard yank
-vnoremap <leader>y "*y
-
-" Format Entire File
-map <leader>fef gg=G<cr><c-o>zz
-
-" Format function
-map <leader>ff [[v%==
-
-" Switch between the last two files
-nn <leader><leader> <c-^>
-
-" Window movement
-nn <c-j> <c-w>j
-nn <c-k> <c-w>k
-nn <c-l> <c-w>l
-nn <c-h> <c-w>h
-
-" Opens a vertical split and switches over
-nn <leader>v <C-w>v<C-w>l
-" Opens a horizontal split and switches over
-nn <leader>h <C-w>s<C-w>j
-
-function! ClearCtrlPState()
-  :let g:ctrlp_default_input = ''
-endfunction
-
 " CtrlP
 let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
 nn <leader>B :CtrlPBuffer<cr>
-nn <leader>p :tabp<cr>
-nn <leader>n :tabn<cr>
 
 " Project search
 nn <leader>k :LAck! -i '\b<cword>\b'<cr>
-
-" Jump to declaration
-nn <F5> :call ClearCtrlPState()<cr>:let g:ctrlp_default_input = substitute(expand('<cword>'), '.*/', '', '')<cr>:CtrlPTag<cr>
-
-" clojure-static
-let g:clojure_align_multiline_strings = 1
 
 " Unimpared mappings
 map ]q :cnext<cr>
 map [q :cprevious<cr>
 map ]Q :clast<cr>
 map [Q :cfirst<cr>
-
-" Paredit
-let g:paredit_smartjump = 1
-let g:paredit_electric_return = 0
 
 " Make vim remember where it left off in a file (except for git commit
 " messages)
@@ -119,12 +80,6 @@ function! StripTrailingSpaces()
     call cursor(l, c)
 endfunction
 au BufWritePre * :call StripTrailingSpaces()
-
-" Make vi recognize .jspf files
-au BufNewFile,BufRead *.jspf set filetype=jsp
-
-" Make vi parse syntax highlighting from the start of the page for jsps (to fix javascript highlighting)
-autocmd BufEnter *.jspf :syn sync fromstart
 
 " Recognize .md files
 au BufRead,BufNewFile *.md set filetype=markdown
