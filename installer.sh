@@ -23,6 +23,8 @@ typeset -r DOT_FILE_DESTINATION_DIR="$HOME"
 typeset -r BIN_DIR="$BASE_DIR/bin"
 typeset -r USER_BIN_DIR="$HOME/bin"
 typeset -r BREW_DIR="$BASE_DIR/brew"
+typeset -r SSHRC_DIR="$BASE_DIR/sshrc.d"
+typeset -r SSHRC_DESTINATION_DIR="$HOME/.sshrc.d"
 typeset -r BREW_INSTALLER="$BREW_DIR/installer.sh"
 typeset -r PATHOGEN_BUNDLE_DIR=~/.vim/bundle
 
@@ -59,3 +61,16 @@ while read repo; do
     git clone "$repo"
   fi
 done < "$BASE_DIR"/vim-plugins
+
+if ! [[ -d $SSHRC_DESTINATION_DIR ]]; then
+  mkdir "$SSHRC_DESTINATION_DIR"
+fi
+
+for file in "$SSHRC_DIR"/*; do
+  destination="$SSHRC_DESTINATION_DIR/${file##*/}"
+  if ! checkLink "$destination"; then
+    rm -f "$destination"
+  fi
+
+  ln -s "$file" "$destination"
+done

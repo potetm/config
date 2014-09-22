@@ -1,0 +1,35 @@
+" Souce the default vimrc
+:so /usr/share/vim/vimrc
+
+" Settings
+syntax enable
+
+set number
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set ruler
+set ignorecase
+set smartcase
+set statusline=%F
+set backspace=indent,eol,start
+set viewoptions=cursor
+
+" Turn off F1 help.
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
+
+" Colorscheme settings
+colorscheme peachpuff
+
+" Leader
+let mapleader = ","
+let g:mapleader = ","
+let maplocalleader = "\\"
+
+" Make vim remember where it left off in a file (except for git commit
+" messages)
+au BufWinLeave ?*\(.git/COMMIT_EDITMSG\)\@<! silent! mkview
+au BufWinEnter ?*\(.git/COMMIT_EDITMSG\)\@<! silent! loadview
