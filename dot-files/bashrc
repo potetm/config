@@ -4,8 +4,6 @@ export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=target"
 export HISTFILESIZE=-1
 export HISTSIZE=-1
 
-alias f="fg"
-
 alias vi="vim"
 alias l="ls"
 alias sl="ls"

@@ -1,0 +1,11 @@
+set -o vi
+
+export EDITOR="vim"
+
+export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=target"
+
+alias vi="vim"
+alias vim="vim -u "$SSHHOME/.sshrc.d/vimrc""
+alias l="ls"
+alias sl="ls"
+alias s="ls"
