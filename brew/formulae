@@ -28,9 +28,12 @@ parallel
 pcre
 phantomjs
 pkg-config
-python
+pyenv
+rbenv
 readline
+ruby-build
 sshrc
+tmux
 tree
 unzip
 vim

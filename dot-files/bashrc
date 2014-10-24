@@ -1,6 +1,7 @@
 set -o vi
 
 export EDITOR="vim"
+export SHELL="/usr/local/bin/bash"
 export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=target"
 export HISTFILESIZE=-1
 export HISTSIZE=-1
@@ -25,6 +26,7 @@ alias cdconf="cd ~/projects/potetm/config"
 alias dnsflush="sudo killall -HUP mDNSResponder"
 
 complete -C aws_completer aws
+complete -o nospace -d cd
 
 alias prodt="ssh -N prodt"
 alias staget="ssh -N staget"
