@@ -15,6 +15,7 @@ alias pself="ps -Ao flags,state,user,pid,ppid,%cpu,pri,nice,paddr,rss,wchan,star
 alias gitk="gitk 2> /dev/null"
 
 alias cdpr="cd ~/projects"
+alias cdpo="cd ~/projects/potetm"
 alias cdbl="cd ~/projects/potetm/potetm.github.io"
 alias cdba="cd ~/projects/potetm/clobaconjure"
 alias cdbacon="cd ~/projects/baconjs/bacon.js"
