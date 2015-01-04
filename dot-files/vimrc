@@ -42,16 +42,10 @@ map! <F3> <Esc> :%!pbcopy<Return>u
 map  <F4> :set nu!<Return>
 map! <F4> <C-o><F4>
 
-" Leader
-let mapleader = ","
-let g:mapleader = ","
-let maplocalleader = "\\"
-
 " CtrlP
 let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
-nn <leader>B :CtrlPBuffer<cr>
 
 " Project search
 nn <leader>k :LAck! -i '\b<cword>\b'<cr>
