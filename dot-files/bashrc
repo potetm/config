@@ -2,7 +2,6 @@ set -o vi
 
 export EDITOR="vim"
 export SHELL="/usr/local/bin/bash"
-export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=target"
 export HISTFILESIZE=-1
 export HISTSIZE=-1
 
@@ -10,6 +9,8 @@ alias vi="vim"
 alias l="ls"
 alias sl="ls"
 alias s="ls"
+alias grep="grep --color=auto --exclude-dir=.git --exclude-dir=target"
+alias egrep="egrep --color=auto --exclude-dir=.git --exclude-dir=target"
 
 alias pself="ps -Ao flags,state,user,pid,ppid,%cpu,pri,nice,paddr,rss,wchan,start,tty,time,command | sort -n -k4"
 alias gitk="gitk 2> /dev/null"
@@ -21,6 +22,7 @@ alias cdba="cd ~/projects/potetm/clobaconjure"
 alias cdphi="cd ~/projects/potetm/phi"
 alias cdbacon="cd ~/projects/baconjs/bacon.js"
 alias cdm="cd ~/projects/cicayda/monolith"
+alias cdv="cd ~/projects/cicayda/vivace"
 alias cdsys="cd ~/projects/cicayda/SysOps"
 alias cdev="cd ~/projects/cicayda/devops"
 alias cdconf="cd ~/projects/potetm/config"

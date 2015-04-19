@@ -16,6 +16,7 @@ gnu-tar
 gnupg
 grep
 gzip
+hexedit
 iftop
 jq
 leiningen
@@ -25,6 +26,7 @@ make
 node
 openssh
 openssl
+p7zip
 parallel
 pcre
 phantomjs
