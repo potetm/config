@@ -27,7 +27,7 @@ alias cdsys="cd ~/projects/cicayda/SysOps"
 alias cdev="cd ~/projects/cicayda/devops"
 alias cdconf="cd ~/projects/potetm/config"
 
-alias dnsflush="sudo killall -HUP mDNSResponder"
+alias dnsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 complete -C aws_completer aws
 complete -o nospace -d cd

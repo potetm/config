@@ -76,7 +76,13 @@ endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
 " Recognize .md files
+function SetWrap()
+  setlocal tw=79
+  setlocal formatoptions+=t
+endfunction
+
 au BufRead,BufNewFile *.md set filetype=markdown
+au Filetype markdown call SetWrap()
 
 let g:rbpt_colorpairs = [
     \ ['brown',   'RoyalBlue3'],
