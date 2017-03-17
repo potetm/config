@@ -9,7 +9,7 @@ function fail {
 
 # check for xcode
 # not sure if com.apple.pkg.XcodeMAS_iOSSDK_6_1 is universal, but that's what it is on my machine right now
-pkgutil --pkg-info=com.apple.pkg.XcodeMAS_iOSSDK_6_1 > /dev/null 2>&1 || fail "Xcode not insalled.  See README.md."
+#pkgutil --pkg-info=com.apple.pkg.XcodeMAS_iOSSDK_6_1 > /dev/null 2>&1 || fail "Xcode not insalled.  See README.md."
 # check for xcode cli
 #pkgutil --pkg-info=com.apple.pkg.DeveloperToolsCLI   > /dev/null 2>&1 || fail "Xcode CLI not insalled.  See README.md."
 # check for brew
@@ -27,7 +27,7 @@ declare -r MY_BREW_BASE="$BASEDIR"/brew-base
 declare -r BREW_BASE="$(brew --prefix)"
 
 function installFormula {
-  comm -13 <(brew tap) "$FILE_TAP" |
+  comm -13 <(brew tap | sort) <(sort "$FILE_TAP") |
   while read tap; do
     brew tap "$tap" || fail "Unable to add tap: $tap"
   done

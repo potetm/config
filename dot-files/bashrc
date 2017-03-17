@@ -26,6 +26,8 @@ alias cdv="cd ~/projects/cicayda/vivace"
 alias cdsys="cd ~/projects/cicayda/SysOps"
 alias cdev="cd ~/projects/cicayda/devops"
 alias cdconf="cd ~/projects/potetm/config"
+alias cdti="cd ~/projects/potetm/tire-iron"
+alias cdt="cd ~/Dropbox/thoughts"
 
 alias dnsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
@@ -37,3 +39,5 @@ alias staget="ssh -N staget"
 alias eut="ssh -N eut"
 alias drt="ssh -N drt"
 alias dr-eut="ssh -N dr-eut"
+
+alias speed-test="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
