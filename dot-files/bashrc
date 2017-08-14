@@ -1,5 +1,9 @@
 set -o vi
 
+function txt2pdf {
+  cupsfilter "$1" > "$2"
+}
+
 export EDITOR="vim"
 export SHELL="/usr/local/bin/bash"
 export HISTFILESIZE=-1
@@ -9,8 +13,10 @@ alias vi="vim"
 alias l="ls"
 alias sl="ls"
 alias s="ls"
-alias grep="grep --color=auto --exclude-dir=.git --exclude-dir=target"
-alias egrep="egrep --color=auto --exclude-dir=.git --exclude-dir=target"
+alias grep="grep --color=auto --exclude-dir=.git --exclude-dir=target --exclude-dir=.idea"
+alias egrep="egrep --color=auto --exclude-dir=.git --exclude-dir=target --exclude-dir=.idea"
+alias grepc="grep --color=always --exclude-dir=.git --exclude-dir=target --exclude-dir=.idea"
+alias egrepc="egrep --color=always --exclude-dir=.git --exclude-dir=target --exclude-dir=.idea"
 
 alias pself="ps -Ao flags,state,user,pid,ppid,%cpu,pri,nice,paddr,rss,wchan,start,tty,time,command | sort -n -k4"
 alias gitk="gitk 2> /dev/null"
@@ -22,9 +28,13 @@ alias cdba="cd ~/projects/potetm/clobaconjure"
 alias cdphi="cd ~/projects/potetm/phi"
 alias cdbacon="cd ~/projects/baconjs/bacon.js"
 alias cdm="cd ~/projects/cicayda/monolith"
+alias cdl="cd ~/projects/cicayda/logbook"
+alias cdn="cd ~/projects/cicayda/logbook/notes/potetm"
 alias cdv="cd ~/projects/cicayda/vivace"
 alias cdsys="cd ~/projects/cicayda/SysOps"
 alias cdev="cd ~/projects/cicayda/devops"
+alias cdeng="cd ~/projects/cicayda/engrave"
+alias cdma="cd ~/projects/cicayda/maestro"
 alias cdconf="cd ~/projects/potetm/config"
 alias cdti="cd ~/projects/potetm/tire-iron"
 alias cdt="cd ~/Dropbox/thoughts"
@@ -37,7 +47,6 @@ complete -o nospace -d cd
 alias prodt="ssh -N prodt"
 alias staget="ssh -N staget"
 alias eut="ssh -N eut"
-alias drt="ssh -N drt"
-alias dr-eut="ssh -N dr-eut"
 
 alias speed-test="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
+alias reset-cam="sudo killall VDCAssistant"

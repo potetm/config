@@ -6,7 +6,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set smartindent
+"set smartindent
 set ruler
 set ignorecase
 set smartcase
@@ -43,7 +43,6 @@ map  <F4> :set nu!<Return>
 map! <F4> <C-o><F4>
 
 " CtrlP
-let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
 
@@ -66,6 +65,16 @@ highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
 match TrailingWhitespace /\s\+$/
 au TabEnter * :match TrailingWhitespace /\s\+$/
 
+" Highlight tabs
+highlight Tabs ctermbg=darkgrey guibg=darkgrey
+match Tabs /\t\+/
+
+" Reload vimrc on change
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc so $MYVIMRC
+augroup END
+
 " Trailing space removal on save
 function! StripTrailingSpaces()
     let l = line(".")
@@ -76,13 +85,15 @@ endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
 " Recognize .md files
-function SetWrap()
+function! SetWrap()
   setlocal tw=79
-  setlocal formatoptions+=t
+  setlocal formatoptions=t
 endfunction
 
 au BufRead,BufNewFile *.md set filetype=markdown
-"au Filetype markdown call SetWrap()
+au Filetype markdown call SetWrap()
+au Filetype markdown set spell
+au Filetype sh set noexpandtab
 
 let g:rbpt_colorpairs = [
     \ ['brown',   'RoyalBlue3'],
