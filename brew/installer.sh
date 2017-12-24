@@ -35,7 +35,7 @@ function installFormula {
   comm -13 <(brew list) "$FILE_FORMULA" |
   while read formula; do
     if grep "$formula" "$FILE_DEFAULT_NAMES"; then
-      brew install --default-names "$formula" || fail "Unable to complete installation of formula: $formula"
+      brew install --with-default-names "$formula" || fail "Unable to complete installation of formula: $formula"
     else
       brew install "$formula" || fail "Unable to complete installation of formula: $formula"
     fi

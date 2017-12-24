@@ -4,10 +4,15 @@ function txt2pdf {
   cupsfilter "$1" > "$2"
 }
 
-export EDITOR="vim"
-export SHELL="/usr/local/bin/bash"
-export HISTFILESIZE=-1
-export HISTSIZE=-1
+EDITOR="vim"
+SHELL="/usr/local/bin/bash"
+HISTFILESIZE=
+HISTSIZE=
+
+export EDITOR
+export SHELL
+export HISTFILESIZE
+export HISTSIZE
 
 alias vi="vim"
 alias l="ls"

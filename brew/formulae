@@ -2,7 +2,6 @@ ack
 aspell
 bash
 bash-completion
-boot2docker
 coreutils
 curl
 docker
@@ -19,7 +18,6 @@ hexedit
 iftop
 jq
 libevent
-libyaml
 make
 node
 openssh
@@ -27,7 +25,6 @@ openssl
 p7zip
 parallel
 pcre
-phantomjs
 pkg-config
 pyenv
 rbenv
