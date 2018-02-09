@@ -15,6 +15,8 @@ function checkLink {
   return 0
 }
 
+set -xeuo pipefail
+
 cd "$(dirname "$0")"
 
 typeset -r BASE_DIR="$PWD"
@@ -50,6 +52,12 @@ for file in "$DOT_FILE_DIR"/*; do
   ln -s "$file" "$destination"
 done
 
+# Install Pathogen
+mkdir -p ~/.vim/autoload
+if ! [[ -f ~/.vim/autoload/pathogen.vim ]]; then
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+fi
+
 mkdir -p "$PATHOGEN_BUNDLE_DIR"
 cd "$PATHOGEN_BUNDLE_DIR"
 
@@ -61,6 +69,14 @@ while read repo; do
     git clone "$repo"
   fi
 done < "$BASE_DIR"/vim-plugins
+
+# Install my favorite vim color scheme
+if ! [[ -f ~/.vim/colors/desert256.vim ]]; then
+  mkdir -p ~/.vim/colors
+  curl -Lso \
+    ~/.vim/colors/desert256.vim \
+    "http://www.vim.org/scripts/download_script.php?src_id=4055"
+fi
 
 if ! [[ -d $SSHRC_DESTINATION_DIR ]]; then
   mkdir "$SSHRC_DESTINATION_DIR"

@@ -7,6 +7,8 @@ function fail {
   exit 1
 }
 
+set -exuo pipefail
+
 # check for xcode
 # not sure if com.apple.pkg.XcodeMAS_iOSSDK_6_1 is universal, but that's what it is on my machine right now
 #pkgutil --pkg-info=com.apple.pkg.XcodeMAS_iOSSDK_6_1 > /dev/null 2>&1 || fail "Xcode not insalled.  See README.md."

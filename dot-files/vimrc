@@ -93,7 +93,10 @@ endfunction
 au BufRead,BufNewFile *.md set filetype=markdown
 au Filetype markdown call SetWrap()
 au Filetype markdown set spell
-au Filetype sh set noexpandtab
+" This is my pref, because it allos you to indent heredocs
+" via <<-  but, alas, most people (including elastic) won't
+" like it.
+" au Filetype sh set noexpandtab
 
 let g:rbpt_colorpairs = [
     \ ['brown',   'RoyalBlue3'],

@@ -30,21 +30,16 @@ alias gitk="gitk 2> /dev/null"
 alias cdpr="cd ~/projects"
 alias cdpo="cd ~/projects/potetm"
 alias cdbl="cd ~/projects/potetm/potetm.github.io"
-alias cdba="cd ~/projects/potetm/clobaconjure"
-alias cdphi="cd ~/projects/potetm/phi"
-alias cdbacon="cd ~/projects/baconjs/bacon.js"
 alias cdconf="cd ~/projects/potetm/config"
 alias cdti="cd ~/projects/potetm/tire-iron"
+alias cdj="cd ~/projects/potetm/journal"
+alias cdel="cd ~/projects/potetm/elastic"
 alias cdt="cd ~/Dropbox/thoughts"
 
 alias dnsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 complete -C aws_completer aws
 complete -o nospace -d cd
-
-alias prodt="ssh -N prodt"
-alias staget="ssh -N staget"
-alias eut="ssh -N eut"
 
 alias speed-test="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
 alias reset-cam="sudo killall VDCAssistant"
