@@ -34,6 +34,7 @@ alias cdconf="cd ~/projects/potetm/config"
 alias cdti="cd ~/projects/potetm/tire-iron"
 alias cdj="cd ~/projects/potetm/journal"
 alias cdel="cd ~/projects/potetm/elastic"
+alias cdc="cd ~/projects/potetm/elastic/cloud"
 alias cdt="cd ~/Dropbox/thoughts"
 
 alias dnsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"

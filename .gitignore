@@ -1,2 +1,5 @@
 bin/packer
 bin/terraform
+bin/logstash
+bin/elasticsearch
+bin/kibana
