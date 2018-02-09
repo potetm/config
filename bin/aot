@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+function usage {
+	cat <<- DONE
+
+		Usage: $(basename "$0")
+
+		AOT compiles all namespaces found in directories in your classpath into
+		'./target/aot'.
+
+		clj-opts - Options to the 'clj' command (see 'clj -h'). Supports:
+		  -Jopt
+		  -Calias...
+		  -Ralias...
+
+		Requires the following alias somewhere in your deps.edn configs:
+
+		  :com.potetm/aot {:extra-deps {org.clojure/tools.namespace {:mvn/version "0.2.11"}
+		                                org.clojure/java.classpath {:mvn/version "0.2.3"}}}
+	DONE
+}
+
+declare -a java_opts=()
+declare resolve_alias=:com.potetm/aot
+declare classpath_alias=:com.potetm/aot
+
+while (( $# > 0 )); do
+	case "$1" in
+		-J*)
+			java_opts+=("$1")
+			shift
+			;;
+		-R*)
+			resolve_alias="${1:2}$resolve_alias"
+			shift
+			;;
+		-C*)
+			classpath_alias="${1:2}$classpath_alias"
+			shift
+			;;
+		-h|--help)
+			usage
+			exit 0
+			;;
+		*)
+			break
+			;;
+	esac
+done
+
+if (( $# != 0 )); then
+	echo "Invalid arguments." >&2
+	usage
+	exit 1
+fi
+
+declare -r target="./target/aot"
+
+if ! [[ -d $target ]]; then
+	mkdir -p "$target"
+fi
+
+clj "${java_opts[@]}" \
+	-Sforce \
+	-R"$resolve_alias" \
+	-C"$classpath_alias" \
+	"$(dirname "$0")"/aot.clj "$target"

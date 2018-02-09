@@ -26,6 +26,7 @@ p7zip
 parallel
 pcre
 pkg-config
+pwgen
 pyenv
 rbenv
 readline

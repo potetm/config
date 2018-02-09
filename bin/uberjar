@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+shopt -s nocaseglob
+
+declare -r version=0.1
+
+function usage {
+	cat <<- DONE
+
+		Usage: $(basename "$0") [options] jarfile [src-dirs...]
+
+		Generate an uberjar from your deps.edn. Uses './target/uberjar' as a
+		staging area.
+
+		options:
+		  -gGroupId     Default: \$(basename "\$PWD")
+		  -aArtifactId  Default: \$(basename "\$PWD")
+		  -mMainClass   Default: clojure.main
+		  -MManifest    Default: See below
+		  -h, --help    Display this help and exit
+
+		jarfile is the output file.
+
+		src-dirs are the directories that contain your sources. The
+		reason it must be provided is to allow for optional aot into
+		some target directory.
+
+		Requires the following alias somewhere in your deps.edn:
+
+		:com.potetm/uberjar {:extra-deps
+		                      {org.clojure/tools.deps.alpha
+		                        {:mvn/version "0.3.254"
+		                         :exclusions [ch.qos.logback/logback-classic]}}}
+
+		Default Manifest:
+		  Manifest-Version: 1.0
+		  Created-By: deps-build $version
+		  Main-Class: clojure.main
+	DONE
+}
+
+declare group="$(basename "$PWD")"
+declare artifact="$(basename "$PWD")"
+declare main=clojure.main
+declare manifest=
+
+while (( $# > 0 )); do
+	case "$1" in
+		-g*)
+			group="${1:2}"
+			shift
+			;;
+		-a*)
+			artifact="${1:2}"
+			shift
+			;;
+		-m*)
+			main="${1:2}"
+			shift
+			;;
+		-M*)
+			manifest="${1:2}"
+			if ! [[ -f $manifest ]]; then
+				echo "Manifest file not found: $manifest" >&2
+				exit 1
+			fi
+			shift
+			;;
+		-h|--help)
+			usage
+			exit 0
+			;;
+		*)
+			break
+			;;
+	esac
+done
+
+declare -r meta=target/uberjar/META-INF/tools.deps.alpha/"$group"/"$artifact"
+mkdir -p "$meta"
+
+function cpmeta {
+	local f
+	for f in "$1"*; do
+		if [[ -f $f ]]; then
+			cp -a "$f" "$meta"
+		fi
+	done
+}
+
+if [[ -z $manifest ]]; then
+	cat > target/uberjar/META-INF/MANIFEST.MF <<- DONE
+		Manifest-Version: 1.0
+		Created-By: deps-build 0.1
+		Main-Class: clojure.main
+	DONE
+else
+	cp "$manifest" target/uberjar/META-INF/MANIFEST.MF
+fi
+
+for f in deps.edn license readme changelog; do
+	cpmeta "$f"
+done
+
+# We want our manifest to be processed first.
+clj -R:com.potetm/uberjar -C:com.potetm/uberjar \
+	--init "$(dirname "$0")"/uberjar.clj \
+	--main com.potetm.uberjar "${@:1:1}" target/uberjar/ "${@:2}"

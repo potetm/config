@@ -1,14 +1,10 @@
-git@github.com:mileszs/ack.vim.git
 git@github.com:potetm/auto-highlight.git
 git@github.com:kien/ctrlp.vim.git
 git@github.com:kien/rainbow_parentheses.vim.git
-git@github.com:chase/vim-ansible-yaml.git
 git@github.com:guns/vim-clojure-static.git
-git@github.com:kchmck/vim-coffee-script.git
 git@github.com:tpope/vim-fugitive.git
-git@github.com:groenewege/vim-less.git
 git@github.com:tpope/vim-repeat.git
 git@github.com:guns/vim-sexp.git
 git@github.com:tpope/vim-sexp-mappings-for-regular-people.git
 git@github.com:tpope/vim-eunuch.git
-git@github.com:gabrielelana/vim-markdown.git
+git@github.com:fatih/vim-go.git
