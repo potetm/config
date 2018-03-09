@@ -35,6 +35,7 @@ alias cdti="cd ~/projects/potetm/tire-iron"
 alias cdj="cd ~/projects/potetm/journal"
 alias cdel="cd ~/projects/potetm/elastic"
 alias cdc="cd ~/projects/potetm/elastic/cloud"
+alias cdecl="cd ~/projects/potetm/elastic/cloud-cli"
 alias cdt="cd ~/Dropbox/thoughts"
 
 alias dnsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
@@ -44,3 +45,7 @@ complete -o nospace -d cd
 
 alias speed-test="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
 alias reset-cam="sudo killall VDCAssistant"
+
+if [[ -f ~/.secrets ]]; then
+  source ~/.secrets
+fi
