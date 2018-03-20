@@ -12,6 +12,7 @@ findutils
 gawk
 gdbm
 git
+git-crypt
 gnu-sed
 gnu-tar
 gnupg

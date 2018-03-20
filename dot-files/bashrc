@@ -36,6 +36,7 @@ alias cdj="cd ~/projects/potetm/journal"
 alias cdel="cd ~/projects/potetm/elastic"
 alias cdc="cd ~/projects/potetm/elastic/cloud"
 alias cdt="cd ~/Dropbox/thoughts"
+alias cdj="cd ~/projects/potetm/journal"
 
 alias dnsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
