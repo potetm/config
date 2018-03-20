@@ -6,6 +6,7 @@ bash-completion
 clojure
 coreutils
 curl
+dep
 docker
 docker-machine
 findutils
