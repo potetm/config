@@ -16,6 +16,7 @@ git-crypt
 gnu-sed
 gnu-tar
 gnupg
+go
 grep
 gzip
 hexedit
