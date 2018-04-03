@@ -126,6 +126,7 @@ set re=1
 
 " turn off the preview buffer on omnifunc
 set completeopt=menu
+let g:go_quickfix_height = 10
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving

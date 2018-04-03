@@ -22,3 +22,5 @@
 	default = simple
 [color]
 	ui = true
+[commit]
+	gpgsign = true

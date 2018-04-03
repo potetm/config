@@ -1,5 +1,6 @@
 ack
 aspell
+assume-role
 awscli
 bash
 bash-completion
@@ -39,6 +40,7 @@ rbenv
 readline
 ruby-build
 sbt
+shellcheck
 sshrc
 tmux
 tree

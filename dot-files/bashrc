@@ -8,11 +8,13 @@ EDITOR="vim"
 SHELL="/usr/local/bin/bash"
 HISTFILESIZE=
 HISTSIZE=
+GPG_TTY="$(tty)"
 
 export EDITOR
 export SHELL
 export HISTFILESIZE
 export HISTSIZE
+export GPG_TTY
 
 alias vi="vim"
 alias l="ls"
@@ -35,7 +37,7 @@ alias cdti="cd ~/projects/potetm/tire-iron"
 alias cdj="cd ~/projects/potetm/journal"
 alias cdel="cd ~/projects/potetm/elastic"
 alias cdc="cd ~/projects/potetm/elastic/cloud"
-alias cdecl="cd ~/projects/potetm/elastic/cloud-cli"
+alias cdecl="cd ~/go/src/github.com/elastic/cloud-cli"
 alias cdt="cd ~/Dropbox/thoughts"
 alias cdj="cd ~/projects/potetm/journal"
 
@@ -47,6 +49,29 @@ complete -o nospace -d cd
 alias speed-test="wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip"
 alias reset-cam="sudo killall VDCAssistant"
 
+function copr {
+  local -r pr="$1"
+  local -r branch="$2"
+
+  if [[ -z $pr ]] || [[ -z $branch ]]; then
+    cat << DONE >&2
+Usage: $(basename "$0") pr-num checkout-branch
+
+pr-num          - The number of the pr
+checkout-branch - The branch you wish to check out to
+DONE
+    return 1
+  fi
+  git fetch elastic "pull/$pr/head:$branch" && \
+  git checkout "$branch"
+}
+
 if [[ -f ~/.secrets ]]; then
   source ~/.secrets
 fi
+
+# ecl
+alias ecl-set-aio="export EC_CONFIG=aio"
+alias ecl-set-ce="export EC_CONFIG=ece"
+alias ecl-set-prod="export EC_CONFIG=prod"
+alias ecl-set-staging="export EC_CONFIG=staging"
