@@ -12,18 +12,16 @@ function usage {
 
 		clj-opts - Options to the 'clj' command (see 'clj -h'). Supports:
 		  -Jopt
-		  -Calias...
-		  -Ralias...
+		  -Aalias...
 
 		Requires the following alias somewhere in your deps.edn configs:
 
-		  :aliases {:com.potetm/nrepl {org.clojure/tools.nrepl {:mvn/version "0.2.12"}}}
+		  :aliases {:com.potetm/nrepl {:extra-deps {org.clojure/tools.nrepl {:mvn/version "0.2.12"}}}}
 	DONE
 }
 
 declare -a java_opts=()
-declare resolve_alias=:com.potetm/nrepl
-declare classpath_alias=:com.potetm/nrepl
+declare alias=:com.potetm/nrepl
 declare help=false
 
 while (( $# > 0 )); do
@@ -32,12 +30,8 @@ while (( $# > 0 )); do
 			java_opts+=("$1")
 			shift
 			;;
-		-R*)
-			resolve_alias="${1:2}$resolve_alias"
-			shift
-			;;
-		-C*)
-			classpath_alias="${1:2}$classpath_alias"
+		-A*)
+			alias="${1:2}$alias"
 			shift
 			;;
 		-h|--help)
@@ -52,7 +46,7 @@ if ! [[ -f deps.edn ]]; then
 	exit 1
 fi
 
-clj "${java_opts[@]}" -C"$classpath_alias" -R"$resolve_alias" - << DONE
+clj "${java_opts[@]}" -A"$alias" - << DONE
 (ns com.potetm.nrepl
   (:require [clojure.tools.nrepl.server :as srvr]))
 
