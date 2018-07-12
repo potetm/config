@@ -9,3 +9,4 @@ git@github.com:guns/vim-sexp.git
 git@github.com:tpope/vim-sexp-mappings-for-regular-people.git
 git@github.com:tpope/vim-eunuch.git
 git@github.com:fatih/vim-go.git
+git@github.com:hashivim/vim-terraform.git
