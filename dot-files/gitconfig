@@ -23,4 +23,4 @@
 [color]
 	ui = true
 [commit]
-	gpgsign = true
+  #gpgsign = true

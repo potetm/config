@@ -1,6 +1,5 @@
 ack
 aspell
-assume-role
 awscli
 bash
 bash-completion
@@ -8,13 +7,10 @@ clojure
 coreutils
 curl
 dep
-docker
-docker-machine
 findutils
 gawk
 gdbm
 git
-git-crypt
 gnu-sed
 gnu-tar
 gnupg
@@ -22,16 +18,12 @@ go
 grep
 gzip
 hexedit
-iftop
 jq
 libevent
 make
 node
 openssh
 openssl
-openvpn
-p7zip
-parallel
 pcre
 pkg-config
 pwgen

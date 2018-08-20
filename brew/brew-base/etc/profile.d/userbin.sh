@@ -1,4 +1,5 @@
 USER_BIN="`echo ~/bin`"
-PATH="$USER_BIN":"$PATH"
+USER_BIN_NO_LINK="`echo ~/bin-no-conf-link`"
+PATH="$USER_BIN":"$USER_BIN_NO_LINK":"$PATH"
 
 export PATH

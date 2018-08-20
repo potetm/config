@@ -35,9 +35,7 @@ alias cdbl="cd ~/projects/potetm/potetm.github.io"
 alias cdconf="cd ~/projects/potetm/config"
 alias cdti="cd ~/projects/potetm/tire-iron"
 alias cdj="cd ~/projects/potetm/journal"
-alias cdel="cd ~/projects/potetm/elastic"
-alias cdc="cd ~/projects/potetm/elastic/cloud"
-alias cdecl="cd ~/go/src/github.com/elastic/cloud-cli"
+alias cdtb="cd ~/projects/potetm/cisco/threatbrain"
 alias cdt="cd ~/Dropbox/thoughts"
 alias cdj="cd ~/projects/potetm/journal"
 
@@ -62,16 +60,10 @@ checkout-branch - The branch you wish to check out to
 DONE
     return 1
   fi
-  git fetch elastic "pull/$pr/head:$branch" && \
+  git fetch cisco "pull/$pr/head:$branch" && \
   git checkout "$branch"
 }
 
 if [[ -f ~/.secrets ]]; then
   source ~/.secrets
 fi
-
-# ecl
-alias ecl-set-aio="export EC_CONFIG=aio"
-alias ecl-set-ce="export EC_CONFIG=ece"
-alias ecl-set-prod="export EC_CONFIG=prod"
-alias ecl-set-staging="export EC_CONFIG=staging"
