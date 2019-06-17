@@ -135,3 +135,11 @@ set completeopt=menu
 
 " autoformat terraform files on save
 let g:terraform_fmt_on_save = 1
+
+" Turn off section jumping
+" This tends to get in the way of my ctrl-[
+" usage
+nmap [[ <Nop>
+nmap ][ <Nop>
+nmap ]] <Nop>
+nmap [] <Nop>

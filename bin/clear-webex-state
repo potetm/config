@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd ~/Library
+
+rm -rf \
+  ./LibraryCaches/com.cisco.webex.* \
+  ./Caches/com.webex.meetingmanager \
+  ./Cookies/com.cisco* \
+  ./Caches/com.cisco* \
+  ./Application\ Support/WebEx\ Folder \
+  ./Internet\ Plug-Ins/WebEx64.plugin \
+  ./Logs/DiagnosticReports/Cisco\ Webex\ Meetings* \
+  ./Preferences/com.cisco* \
+  ./Preferences/com.webex* \
+  ./Internet\ Plug-Ins/WebEx64.plugin \
+  ./Application\ Support/Cisco/WebEx\ Meetings \
+  ./Application\ Support/CrashReporter/ \
+  ./WebKit/com.webex.meetingmanager \
+  ./Saved\ Application\ State/com.cisco.Cisco\ Webex\ Meetings.savedState \
+  ./WebKit/Databases/___IndexedDB/com.cisco* \
+  ./Safari/LocalStorage/https_cisco* \
+  ./Safari/Databases/___IndexedDB/https_cisco* \
+  ./WebKit/com.webex.meetingmanager \
+  ./Containers/com.cisco.webex* \
+  ./Application\ Scripts/com.cisco.webex* \
+  ./Application\ Support/Mozilla/NativeMessagingHosts/com.webex.meeting.json \
+  ./Application\ Support/Google/Chrome/NativeMessagingHosts/com.webex.meeting.json \
+  ./Application\ Support/Google/Chrome\ Canary/NativeMessagingHosts/com.webex.meeting.json \
+  ./Group\ Containers/group.com.cisco.webex.meetings \
+  ./Containers/com.microsoft.Outlook/Data/com.cisco*
