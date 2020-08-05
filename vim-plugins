@@ -8,5 +8,4 @@ git@github.com:tpope/vim-repeat.git
 git@github.com:guns/vim-sexp.git
 git@github.com:tpope/vim-sexp-mappings-for-regular-people.git
 git@github.com:tpope/vim-eunuch.git
-git@github.com:fatih/vim-go.git
-git@github.com:hashivim/vim-terraform.git
+git@github.com:saltstack/salt-vim.git

@@ -36,6 +36,7 @@ alias cdconf="cd ~/projects/potetm/config"
 alias cdti="cd ~/projects/potetm/tire-iron"
 alias cdj="cd ~/projects/potetm/journal"
 alias cdtb="cd ~/projects/potetm/cisco/threatbrain"
+alias cdrfd="cd ~/projects/potetm/cisco/rfd"
 alias cdt="cd ~/Dropbox/thoughts"
 alias cdj="cd ~/projects/potetm/journal"
 

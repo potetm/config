@@ -26,6 +26,7 @@ openssh
 openssl
 pcre
 pkg-config
+pssh
 pwgen
 pyenv
 rbenv

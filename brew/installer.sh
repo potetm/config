@@ -23,7 +23,6 @@ declare -r BASEDIR="$PWD"
 declare -r FILE_FORMULA="$BASEDIR"/formulae
 declare -r FILE_FORCE_LINK="$BASEDIR"/force-link
 declare -r FILE_TAP="$BASEDIR"/tap
-declare -r FILE_DEFAULT_NAMES="$BASEDIR"/default-names
 declare -r MY_ETC="$BASEDIR"/etc
 declare -r MY_BREW_BASE="$BASEDIR"/brew-base
 declare -r BREW_BASE="$(brew --prefix)"
@@ -36,11 +35,7 @@ function installFormula {
 
   comm -13 <(brew list) "$FILE_FORMULA" |
   while read formula; do
-    if grep "$formula" "$FILE_DEFAULT_NAMES"; then
-      brew install --with-default-names "$formula" || fail "Unable to complete installation of formula: $formula"
-    else
-      brew install "$formula" || fail "Unable to complete installation of formula: $formula"
-    fi
+    brew install "$formula" || fail "Unable to complete installation of formula: $formula"
 
     # find any keg-only formulae
     if brew info "$formula" | grep 'formula is keg-only' > /dev/null 2>&1; then

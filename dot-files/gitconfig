@@ -12,8 +12,8 @@
 	br = branch
 	unstage = reset HEAD --
 	last = log -1 HEAD
-  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ [%cn]" --decorate
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(green)\\ [%cn]\\ %C(cyan)\\ [%ad]" --decorate --numstat
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cgreen\\ [%an]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(green)\\ [%an]\\ %C(cyan)\\ [%ad]" --decorate --numstat
   add-nows = ! git diff -w --no-color | git apply --cached --ignore-whitespace
 [diff]
 	tool = vimdiff
