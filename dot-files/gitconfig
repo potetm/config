@@ -1,4 +1,4 @@
-[include]
+[includeIf "gitdir:~/projects/"]
   path = ~/.gitconfig-local
 [merge]
 	tool = vimdiff

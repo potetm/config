@@ -35,8 +35,6 @@ alias cdbl="cd ~/projects/potetm/potetm.github.io"
 alias cdconf="cd ~/projects/potetm/config"
 alias cdti="cd ~/projects/potetm/tire-iron"
 alias cdj="cd ~/projects/potetm/journal"
-alias cdtb="cd ~/projects/potetm/cisco/threatbrain"
-alias cdrfd="cd ~/projects/potetm/cisco/rfd"
 alias cdt="cd ~/Dropbox/thoughts"
 alias cdj="cd ~/projects/potetm/journal"
 
@@ -61,7 +59,7 @@ checkout-branch - The branch you wish to check out to
 DONE
     return 1
   fi
-  git fetch cisco "pull/$pr/head:$branch" && \
+  git fetch upstream "pull/$pr/head:$branch" && \
   git checkout "$branch"
 }
 
